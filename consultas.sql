@@ -8,16 +8,16 @@ BEGIN
 -- Consultas --
 
 -- Unión --
-
+SELECT * FROM habitacion WHERE codigo LIKE 'A%' UNION SELECT * FROM habitacion WHERE codigo LIKE 'D%';
 
 -- Intersección --
-
+SELECT * FROM habitacion WHERE codigo LIKE 'A%' INTERSECT SELECT * FROM habitacion WHERE capacidad_maxima = 1;
 
 -- Diferencia --
-
+SELECT * FROM habitacion WHERE codigo LIKE 'A%' EXCEPT SELECT * FROM habitacion WHERE estado = 'ocupada';
 
 -- Agregación --
-
+SELECT tipo, AVG(tarifa_por_noche) AS tarifa_promedio, COUNT(*) AS cantidad_habitaciones, MAX(tarifa_por_noche) AS tarifa_maxima FROM habitacion GROUP BY tipo;
 
 -- Reunion natural --
 
